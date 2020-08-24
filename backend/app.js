@@ -4,8 +4,24 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "tutorola"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected to database!");
+});
+
+global.con = con;
 
 var indexRouter = require("./routes/index");
+var loginRouter = require('./routes/login');
 //var usersRouter = require("./routes/users");
 //var testAPIRouter = require("./routes/testAPI");
 
@@ -23,6 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/login", loginRouter);
 //app.use("/users", usersRouter);
 //app.use("/testAPI", testAPIRouter);
 
