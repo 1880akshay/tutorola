@@ -119,6 +119,9 @@
 .form-v7-content .form-detail .form-row input:focus:valid {
 	border-bottom: 2px solid #1ebd46;
 }
+.form-v7-content .form-detail .form-row input:invalid {
+	box-shadow: none;
+}
 
 /* Responsive */
 @media screen and (max-width: 991px) {
