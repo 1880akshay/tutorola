@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Route, Switch } from 'react-router-dom';
 import Home from './screens/home';
-import SignUp from './screens/signup';
+import StudentSignUp from './screens/studentSignup';
+import TeacherSignUp from './screens/teacherSignup';
+import StudentDashboard from './screens/studentDashboard';
+import TeacherDashboard from './screens/teacherDashboard';
 import Error from './screens/error';
-
-const api = 'http://localhost:9000';
 
 class App extends Component {
     constructor(props) {
@@ -29,7 +30,10 @@ class App extends Component {
             <div className="App">
                 <Switch>
                     <Route path="/" component={Home} exact />
-                    <Route path="/signup" component={SignUp} />
+                    <Route path="/studentSignup" component={StudentSignUp} />
+                    <Route path="/teacherSignup" component={TeacherSignUp} />
+                    <Route path="/studentDashboard" component={StudentDashboard} />
+                    <Route path="/teacherDashboard" component={TeacherDashboard} />
                     <Route component={Error} />
                 </Switch>
             </div>
