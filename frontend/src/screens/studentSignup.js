@@ -103,7 +103,6 @@ export default class StudentSignUp extends Component {
                     $('#emailCheck').hide();
                     $('#emailCheck2').show();
                     $('#emailCheck2').attr('title', 'Email already exists');
-                    email.setCustomValidity('Email already exists');
                     this.setState({checkEmail: 0});
                 }
             })
@@ -135,7 +134,6 @@ export default class StudentSignUp extends Component {
                     $('#phoneNumberCheck').hide();
                     $('#phoneNumberCheck2').show();
                     $('#phoneNumberCheck2').attr('title', 'Phone number already exists');
-                    phoneNumber.setCustomValidity('Phone number already exists');
                     this.setState({checkPhoneNumber: 0});
                 }
             })
@@ -167,7 +165,6 @@ export default class StudentSignUp extends Component {
                     $('#usernameCheck').hide();
                     $('#usernameCheck2').show();
                     $('#usernameCheck2').attr('title', 'Username already exists');
-                    username.setCustomValidity('Username already exists');
                     this.setState({checkUsername: 0});
                 }
             })
