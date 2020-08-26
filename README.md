@@ -14,7 +14,7 @@ Actually, there are two separated apps. The frontend directory which serves the 
 1. Open phpMyAdmin after configuring and starting the Apache and MySQL server in xampp
 2. Create a new Database named tutorola
 3. Create a new Table named students
-4. The Table students will have 5 columns: id, email, phoneNumber, username, password (all case sensitive).
+4. The Table students will have 4 columns: id, name, email, password (all case sensitive).
 5. Set id as the primary key and check the AUTO_INCREMENT (A_I) checkbox
 6. Repeat the steps 3, 4, 5 for a table with name teachers
 
