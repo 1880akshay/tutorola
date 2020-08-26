@@ -113,23 +113,75 @@ export default class StudentSignUp extends Component {
     signupSubmitHandler = (e) => {
         e.preventDefault();
         if(this.state.checkEmail) {
-            var user = {
+            const user = {
                 name: this.state.signupName,
                 email: this.state.signupEmail,
                 password: this.state.signupPassword
             }
-            fetch(api+'/login/studentSignup', {
+            var otp;
+            fetch(api+'/login/studentSendOTP', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(user)
+                body: JSON.stringify({email: user.email})
             })
             .then(res => res.json())
             .then(data => {
                 if(data.status === 'success') {
-                    if(!alert('Account created successfully')) window.location.reload();
+                    otp=data.otp;
+                    //if(!alert('Account created successfully')) window.location.reload();
+                    //page change here
+                    $('.page-signup').empty();
+                    $('.page-signup').append('<form id="signup-otp-form"><div class="otp-text">An OTP has been sent to your Email!</div><div class="form-row"><label for="otp">OTP</label><input type="tel" id="otp" pattern="^[0-9]*$" class="input-text" required style="margin-bottom: 10px" /><i class="fa fa-key input-icon-left"></i></div><span class="resend-otp-row">Didn\'t receive OTP?&nbsp; <span class="resend-otp">Resend OTP</span></span><center><button type="submit" class="register-button" style="margin-top: 40px">Verify and Register</button></center></form>')
+                    $('.resend-otp').click(() => {
+                        fetch(api+'/login/studentSendOTP', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({email: user.email})
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data.status === 'success') {
+                                otp=data.otp;
+                                alert('OTP sent successfully');
+                            }
+                            else {
+                                if(!alert('An error occurred! Please try again')) window.location.reload();
+                            }
+                        })
+                    })
+                    $('#signup-otp-form').submit((e) => {
+                        e.preventDefault();
+                        fetch(api+'/login/studentCheckOTP', {
+                            method: 'POST', 
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({otp, input: $('input#otp').val()})
+                        })
+                        .then(res => res.json())
+                        .then(data2 => {
+                            if(data2.status === 'success') {
+                                fetch(api+'/login/studentSignup', {
+                                    method: 'POST',
+                                    headers: {'Content-Type': 'application/json'},
+                                    body: JSON.stringify(user)
+                                })
+                                .then(res => res.json())
+                                .then(data3 => {
+                                    if(data3.status === 'success') {
+                                        if(!alert('Account created successfully')) window.location.reload();
+                                    }
+                                    else {
+                                        if(!alert('An error occured! Please try again')) window.location.reload();
+                                    }
+                                })
+                            }
+                            else {
+                                if(!alert('OTP verification failed')) window.location.reload();
+                            }
+                        })
+                    })
                 }
                 else {
-                    if(!alert('An error occurred! Please try again')) window.location.reload();
+                    if(!alert('An error occurred!')) window.location.reload();
                 }
             })
         }
@@ -194,10 +246,11 @@ export default class StudentSignUp extends Component {
                                     <span className="fa fa-eye input-icon-right" id="eye2"></span>
                                 </div>
                                 <center>
-                                    <button type="submit" className="register-button">Register</button>
+                                    <button type="submit" className="register-button">Next</button>
                                 </center>
                                 
                             </form>
+                            
                         </div>
                         <div className="page-login" style={{display: 'none'}}>
                             <form style={{marginTop: 90}} onSubmit={this.loginSubmitHandler}>

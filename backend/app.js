@@ -5,6 +5,17 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
 var mysql = require('mysql');
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'team.tutorola@gmail.com',
+    pass: 'Tutorola@123'
+  }
+})
+
+global.transporter = transporter;
 
 var con = mysql.createConnection({
   host: "localhost",

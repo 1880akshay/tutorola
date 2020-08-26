@@ -9,10 +9,39 @@ router.post('/studentLogin', function(req, res, next) {
     con.query(query, (err, result) => {
         if(err) throw err;
         else {
-            if(result && result.length) res.send({'status': 'success'});
+            if(result && result.length) {
+                res.send({'status': 'success'});
+            }
             else res.send({'status': 'failure'});
         }
     })
+})
+
+router.post('/studentSendOTP', function(req, res, next) {
+    var email = req.body.email;
+    var otp = Math.floor(100000 + Math.random()*900000);
+    var details = {
+		from: 'team.tutorola@gmail.com',
+		to: email,
+		subject: 'Tutorola Email Verification ',
+        html: '<h2>Tutorola Email Verification</h2><p>The otp for Tutorola is: '+otp+'</p>'
+    };
+    
+    transporter.sendMail(details, function (error, info) {
+        if(error) res.send({status: 'failure'});
+        else res.send({status: 'success', otp});  
+    });
+});
+
+router.post('/studentCheckOTP', function(req, res, next) {
+    var otp = req.body.otp;
+    var input = req.body.input;
+    if(Number(otp) === Number(input)) {
+        res.send({status: 'success'});
+    }
+    else {
+        res.send({status: 'failure'});
+    }
 })
 
 router.post('/studentSignup', function(req, res, next) {
@@ -49,10 +78,39 @@ router.post('/teacherLogin', function(req, res, next) {
     con.query(query, (err, result) => {
         if(err) throw err;
         else {
-            if(result && result.length) res.send({'status': 'success'});
+            if(result && result.length) {
+                res.send({'status': 'success'});
+            }
             else res.send({'status': 'failure'});
         }
     })
+})
+
+router.post('/teacherSendOTP', function(req, res, next) {
+    var email = req.body.email;
+    var otp = Math.floor(100000 + Math.random()*900000);
+    var details = {
+		from: 'team.tutorola@gmail.com',
+		to: email,
+		subject: 'Tutorola Email Verification ',
+        html: '<h2>Tutorola Email Verification</h2><p>The otp for Tutorola is: '+otp+'</p>'
+    };
+    
+    transporter.sendMail(details, function (error, info) {
+        if(error) res.send({status: 'failure'});
+        else res.send({status: 'success', otp});  
+    });
+});
+
+router.post('/teacherCheckOTP', function(req, res, next) {
+    var otp = req.body.otp;
+    var input = req.body.input;
+    if(Number(otp) === Number(input)) {
+        res.send({status: 'success'});
+    }
+    else {
+        res.send({status: 'failure'});
+    }
 })
 
 router.post('/teacherSignup', function(req, res, next) {

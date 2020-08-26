@@ -208,3 +208,20 @@
 .register-button:hover, .login-button:hover {
 	background-color: #0353a4;
 }
+
+#signup-otp-form {
+    margin-top: 100px;
+}
+.otp-text {
+	text-align: center;
+	color: #1ebd46;
+	margin-bottom: 10px;
+}
+.resend-otp-row {
+    font-size: 11px;
+    float: right;
+}
+.resend-otp {
+	cursor: pointer;
+	text-decoration: underline;
+}
