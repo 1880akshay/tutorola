@@ -112,6 +112,9 @@ export default class StudentSignUp extends Component {
 
     signupSubmitHandler = (e) => {
         e.preventDefault();
+        $('.register-button.button-loader-wrapper').prepend('<div class="button-loader"></div>');
+        $('.register-button.button-loader-wrapper').css('opacity', '0.7');
+        $('.register-button.button-loader-wrapper').attr('disabled', 'true');
         if(this.state.checkEmail) {
             const user = {
                 name: this.state.signupName,
@@ -128,8 +131,10 @@ export default class StudentSignUp extends Component {
             .then(data => {
                 if(data.status === 'success') {
                     otp=data.otp;
-                    //if(!alert('Account created successfully')) window.location.reload();
-                    //page change here
+                    $('.register-button.button-loader-wrapper .button-loader').remove();
+                    $('.register-button.button-loader-wrapper').css('opacity', '1');
+                    $('.register-button.button-loader-wrapper').attr('disabled', 'false');
+
                     $('.page-signup').empty();
                     $('.page-signup').append('<form id="signup-otp-form"><div class="otp-text">An OTP has been sent to your Email!</div><div class="form-row"><label for="otp">OTP</label><input type="tel" id="otp" pattern="^[0-9]*$" class="input-text" required style="margin-bottom: 10px" /><i class="fa fa-key input-icon-left"></i></div><span class="resend-otp-row">Didn\'t receive OTP?&nbsp; <span class="resend-otp">Resend OTP</span></span><center><button type="submit" class="register-button" style="margin-top: 40px">Verify and Register</button></center></form>')
                     $('.resend-otp').click(() => {
@@ -181,7 +186,7 @@ export default class StudentSignUp extends Component {
                     })
                 }
                 else {
-                    if(!alert('An error occurred!')) window.location.reload();
+                    if(!alert('An error occurred! Please try again')) window.location.reload();
                 }
             })
         }
@@ -246,7 +251,7 @@ export default class StudentSignUp extends Component {
                                     <span className="fa fa-eye input-icon-right" id="eye2"></span>
                                 </div>
                                 <center>
-                                    <button type="submit" className="register-button">Next</button>
+                                <button type="submit" className="register-button button-loader-wrapper"><div>Next</div></button>
                                 </center>
                                 
                             </form>
