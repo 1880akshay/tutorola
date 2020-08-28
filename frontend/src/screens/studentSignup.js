@@ -112,10 +112,10 @@ export default class StudentSignUp extends Component {
 
     signupSubmitHandler = (e) => {
         e.preventDefault();
-        $('.register-button.button-loader-wrapper').prepend('<div class="button-loader"></div>');
-        $('.register-button.button-loader-wrapper').css('opacity', '0.7');
-        $('.register-button.button-loader-wrapper').attr('disabled', 'true');
         if(this.state.checkEmail) {
+            $('.register-button.button-loader-wrapper').prepend('<div class="button-loader"></div>');
+            $('.register-button.button-loader-wrapper').css('opacity', '0.7');
+            $('.register-button.button-loader-wrapper').attr('disabled', 'true');
             const user = {
                 name: this.state.signupName,
                 email: this.state.signupEmail,
@@ -262,7 +262,7 @@ export default class StudentSignUp extends Component {
                                 <div className="form-row">
                                     <label htmlFor="emaill">EMAIL</label>
                                     <input type="email" id="emaill" className="input-text" onChange={(e) => {this.setState({loginEmail: e.target.value})}} required />
-                                    <span className="fa fa-user input-icon-left"></span>
+                                    <span className="fa fa-envelope input-icon-left"></span>
                                 </div>
                                 <div className="form-row">
                                     <label htmlFor="passwordl">PASSWORD</label>

@@ -113,7 +113,7 @@
 	-webkit-box-sizing: border-box;
 }
 .form-v7-content .form-detail .form-row input:focus {
-	border-bottom: 2px solid #0466c8;
+	border-bottom: 2px solid #7971ea;
 }
 
 .form-v7-content .form-detail .form-row input:focus:valid {
@@ -158,13 +158,13 @@
 	position: absolute;
 	left: 0;
 	top: 33px;
-	color: #333;
+	color: #7971ea;
 }
 .input-icon-right {
 	position: absolute;
 	right: 0;
 	top: 33px;
-	color: #333;
+	color: #7971ea;
 	cursor: pointer;
 }
 .login-signup-row {
@@ -187,7 +187,7 @@
 	margin-left: 50px;
 }
 .head-active {
-	border-bottom: 3px solid #0466c8;
+	border-bottom: 3px solid #7971ea;
 	font-weight: 600;
 }
 .register-button, .login-button {
@@ -195,7 +195,7 @@
 	border-radius: 30px;
 	border: none;
 	outline: none;
-	background-color: #0466c8;
+	background-color: #7971ea;
 	color: white;
 	font-size: 15px;
 	font-weight: 600;
@@ -206,7 +206,7 @@
 	margin-top: 10px;
 }
 .register-button:hover, .login-button:hover {
-	background-color: #0353a4;
+	background-color: rgb(90, 80, 229);
 }
 
 #signup-otp-form {
