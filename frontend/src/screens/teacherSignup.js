@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import $ from 'jquery';
-import '../css/opensans-font.css';
 import '../css/signup.css';
 
 const api = 'http://localhost:9000';

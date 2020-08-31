@@ -1,16 +1,29 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import Navbar from "../components/Navbar";
+import HomePage from "../components/Home";
+import Courses from "../components/Courses";
+import Program from "../components/Program";
+import Teacher from "../components/Teacher";
+import Review from "../components/Review";
+import ChooseUs from "../components/ChooseUs";
+import ContactUs from "../components/ContactUs";
+import Footer from "../components/Footer";
 
 export default class Home extends Component {
+
     render() {
         return (
-            <section>
-                <h1>Home</h1>
-                <br /><br />
-                <Link to="/studentSignup">Student Signup</Link>
-                <br /><br />
-                <Link to="/teacherSignup">Teacher Signup</Link>
-            </section>
+            <div className="site-wrap">
+                <Navbar />
+                <HomePage />
+                <Courses />
+                <Program />
+                <Teacher />
+                <Review />
+                <ChooseUs />
+                <ContactUs />
+                <Footer />
+            </div>
         )
     }
 }

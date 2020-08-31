@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import $ from 'jquery';
-import '../css/opensans-font.css';
 import '../css/signup.css';
+import Navbar from '../components/Navbar'
 
 const api = 'http://localhost:9000';
 
@@ -212,75 +212,77 @@ export default class StudentSignUp extends Component {
 
     render() {
         return (
-            <div className="page-content">
-                <div className="form-v7-content">
-                    <div className="form-left">
-                        
-                    </div>
-                    <div className="form-detail">
-                        <center>
-                            <div className="login-signup-row">
-                                <div className="signup-head head-active">Sign Up</div>
-                                <div className="login-head">Login</div>
-                            </div>
-                        </center>
-                        <div className="page-signup">
-                            <form onSubmit={this.signupSubmitHandler}>
-                                <div className="form-row">
-                                    <label htmlFor="name">NAME</label>
-                                    <input type="text" id="name" className="input-text" onChange={(e) => {this.setState({signupName: e.target.value})}} required />
-                                    <span className="fa fa-user-o input-icon-left"></span>
-                                </div>
-                                <div className="form-row">
-                                    <label htmlFor="email">E-MAIL</label>
-                                    <input type="email" id="email" className="input-text" onBlur={this.isEmail} onChange={(e) => {this.setState({signupEmail: e.target.value})}} required />
-                                    <span className="fa fa-envelope input-icon-left"></span>
-                                    <span className="fa fa-check input-icon-right" id="emailCheck" style={{color: '#1ebd46', display: 'none'}}></span>
-                                    <span className="fa fa-times input-icon-right" id="emailCheck2" style={{color: '#d12317', display: 'none'}}></span>
-                                </div>
-                                <div className="form-row">
-                                    <label htmlFor="password">PASSWORD</label>
-                                    <input type="password" id="password" className="input-text" onChange={(e) => {this.setState({signupPassword: e.target.value})}} required />
-                                    <span className="fa fa-lock input-icon-left"></span>
-                                    <span className="fa fa-eye input-icon-right" id="eye1"></span>
-                                </div>
-                                <div className="form-row">
-                                    <label htmlFor="confirmPassword">CONFIRM PASSWORD</label>
-                                    <input type="password" id="confirmPassword" className="input-text" required />
-                                    <span className="fa fa-lock input-icon-left"></span>
-                                    <span className="fa fa-eye input-icon-right" id="eye2"></span>
-                                </div>
-                                <center>
-                                <button type="submit" className="register-button button-loader-wrapper"><div>Next</div></button>
-                                </center>
-                                
-                            </form>
+            <section>
+                <div className="page-content">
+                    <div className="form-v7-content">
+                        <div className="form-left">
                             
                         </div>
-                        <div className="page-login" style={{display: 'none'}}>
-                            <form style={{marginTop: 90}} onSubmit={this.loginSubmitHandler}>
-                                <div className="form-row">
-                                    <label htmlFor="emaill">EMAIL</label>
-                                    <input type="email" id="emaill" className="input-text" onChange={(e) => {this.setState({loginEmail: e.target.value})}} required />
-                                    <span className="fa fa-envelope input-icon-left"></span>
+                        <div className="form-detail">
+                            <center>
+                                <div className="login-signup-row">
+                                    <div className="signup-head head-active">Sign Up</div>
+                                    <div className="login-head">Login</div>
                                 </div>
-                                <div className="form-row">
-                                    <label htmlFor="passwordl">PASSWORD</label>
-                                    <input type="password" id="passwordl" className="input-text" onChange={(e) => {this.setState({loginPassword: e.target.value})}} required />
-                                    <span className="fa fa-lock input-icon-left"></span>
-                                    <span className="fa fa-eye input-icon-right" id="eye3"></span>
-                                </div>
+                            </center>
+                            <div className="page-signup">
+                                <form onSubmit={this.signupSubmitHandler}>
+                                    <div className="form-row">
+                                        <label htmlFor="name">NAME</label>
+                                        <input type="text" id="name" className="input-text" onChange={(e) => {this.setState({signupName: e.target.value})}} required />
+                                        <span className="fa fa-user-o input-icon-left"></span>
+                                    </div>
+                                    <div className="form-row">
+                                        <label htmlFor="email">E-MAIL</label>
+                                        <input type="email" id="email" className="input-text" onBlur={this.isEmail} onChange={(e) => {this.setState({signupEmail: e.target.value})}} required />
+                                        <span className="fa fa-envelope input-icon-left"></span>
+                                        <span className="fa fa-check input-icon-right" id="emailCheck" style={{color: '#1ebd46', display: 'none'}}></span>
+                                        <span className="fa fa-times input-icon-right" id="emailCheck2" style={{color: '#d12317', display: 'none'}}></span>
+                                    </div>
+                                    <div className="form-row">
+                                        <label htmlFor="password">PASSWORD</label>
+                                        <input type="password" id="password" className="input-text" onChange={(e) => {this.setState({signupPassword: e.target.value})}} required />
+                                        <span className="fa fa-lock input-icon-left"></span>
+                                        <span className="fa fa-eye input-icon-right" id="eye1"></span>
+                                    </div>
+                                    <div className="form-row">
+                                        <label htmlFor="confirmPassword">CONFIRM PASSWORD</label>
+                                        <input type="password" id="confirmPassword" className="input-text" required />
+                                        <span className="fa fa-lock input-icon-left"></span>
+                                        <span className="fa fa-eye input-icon-right" id="eye2"></span>
+                                    </div>
+                                    <center>
+                                    <button type="submit" className="register-button button-loader-wrapper"><div>Next</div></button>
+                                    </center>
+                                    
+                                </form>
                                 
-                                <center>
-                                    <button type="submit" className="login-button">Login</button>
-                                </center>
-                                
-                            </form>
+                            </div>
+                            <div className="page-login" style={{display: 'none'}}>
+                                <form style={{marginTop: 90}} onSubmit={this.loginSubmitHandler}>
+                                    <div className="form-row">
+                                        <label htmlFor="emaill">EMAIL</label>
+                                        <input type="email" id="emaill" className="input-text" onChange={(e) => {this.setState({loginEmail: e.target.value})}} required />
+                                        <span className="fa fa-envelope input-icon-left"></span>
+                                    </div>
+                                    <div className="form-row">
+                                        <label htmlFor="passwordl">PASSWORD</label>
+                                        <input type="password" id="passwordl" className="input-text" onChange={(e) => {this.setState({loginPassword: e.target.value})}} required />
+                                        <span className="fa fa-lock input-icon-left"></span>
+                                        <span className="fa fa-eye input-icon-right" id="eye3"></span>
+                                    </div>
+                                    
+                                    <center>
+                                        <button type="submit" className="login-button">Login</button>
+                                    </center>
+                                    
+                                </form>
+                            </div>
                         </div>
+                        
                     </div>
-                    
                 </div>
-            </div>
+            </section>
             
         )
     }
