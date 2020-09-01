@@ -835,6 +835,12 @@ h5,
 .sticky-wrapper.is-sticky .site-navbar .site-logo a {
 	color: #000;
 }
+.site-menu-toggle.js-menu-toggle {
+	color: #fff;
+}
+.sticky-wrapper.is-sticky .site-navbar .site-menu-toggle.js-menu-toggle {
+	color: #000;
+}
 .sticky-wrapper.is-sticky .site-navbar .site-menu > li {
 	display: inline-block;
 }
@@ -908,7 +914,7 @@ h5,
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	background: #000000d8;
+	background: #343a40;
 	opacity: 0.9;
 	border-bottom-right-radius: 0px;
 }
@@ -1197,7 +1203,6 @@ h5,
 }
 
 .footer-subscribe .btn {
-	height: 43px;
 	line-height: 1;
 }
 

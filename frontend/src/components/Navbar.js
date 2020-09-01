@@ -78,7 +78,7 @@ function Nav() {
 							</nav>
 							<a
 								href="#"
-								class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"
+								class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle float-right"
 							>
 								<span class="icon-menu h3"></span>
 							</a>
