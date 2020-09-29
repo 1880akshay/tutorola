@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import { Route, Switch } from 'react-router-dom';
 import Home from './screens/home';
-//import StudentSignUp from './screens/studentSignup';
-//import TeacherSignUp from './screens/teacherSignup';
-//import StudentDashboard from './screens/studentDashboard';
-//import TeacherDashboard from './screens/teacherDashboard';
+import StudentSignup from './screens/studentSignup';
+import StudentDashboard from "./screens/studentDashboard";
+import TeacherSignup from './screens/teacherSignup';
+import TeacherDashboard from "./screens/teacherDashboard";
+import FAQ from "./screens/faq";
+import About from "./screens/about";
 import Error from './screens/error';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'
 
 class App extends Component {
     constructor(props) {
@@ -16,14 +22,25 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <Navbar />
                 <Switch>
-                    <Route path="/" component={Home} exact />
-                    {/* <Route path="/studentSignup" component={StudentSignUp} />
-                    <Route path="/teacherSignup" component={TeacherSignUp} />
-                    <Route path="/studentDashboard" component={StudentDashboard} />
-                    <Route path="/teacherDashboard" component={TeacherDashboard} /> */}
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/studentSignup" component={StudentSignup} />
+                    <Route exact path="/studentDashboard" component={StudentDashboard} />
+                    <Route exact path="/teacherSignup" component={TeacherSignup} />
+                    <Route exact path="/teacherDashboard" component={TeacherDashboard} />
+                    <Route exact path="/faq" component={FAQ} />
+                    <Route exact path="/about" component={About} />
                     <Route component={Error} />
                 </Switch>
+                <ToastContainer 
+                    position="top-center"
+                    autoClose={3000}
+                    hideProgressBar={true}
+                    pauseOnHover={true}
+                    draggable={true}
+                />
+                <Footer />
             </div>
         );
     }

@@ -3,19 +3,15 @@ function Footer() {
 	return (
 		<footer className="footer-section bg-white">
 			<div className="container">
-				<div className="row">
-					<div className="col-md-4">
-						<h3>About OneSchool</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit. Porro consectetur ut hic ipsum et veritatis
-							corrupti. Itaque eius soluta optio dolorum
-							temporibus in, atque, quos fugit sunt sit quaerat
-							dicta.
+				<div className="row justify-content-center">
+					<div className="col-md-5">
+						<h3>About Us</h3>
+						<p className="mb-4">
+							Tutorola is an EdTech startup founded by students of IIT Kharagpur with a strong vision of establishing a platform where affordable and quality education is provided to all with the help of one on one personalized tutors. 
 						</p>
 					</div>
 
-					<div className="col-md-3 ml-auto">
+					{/* <div className="col-md-3 ml-auto">
 						<h3>Links</h3>
 						<ul className="list-unstyled footer-links">
 							<li>
@@ -31,37 +27,23 @@ function Footer() {
 								<a href="#">Teachers</a>
 							</li>
 						</ul>
-					</div>
-
-					<div className="col-md-4">
-						<h3>Subscribe</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing
-							elit. Nesciunt incidunt iure iusto architecto?
-							Numquam, natus?
-						</p>
-						<form action="#" className="footer-subscribe">
-							<div className="d-flex mb-5">
-								<input
-									type="text"
-									className="form-control rounded-0"
-									placeholder="Email"
-								/>
-								<input
-									type="submit"
-									className="btn btn-primary rounded-0"
-									value="Subscribe"
-								/>
-							</div>
-						</form>
+					</div> */}
+					<div className="col-md-1"></div>
+					<div className="col-md-5">
+						<a href="mailto:support@tutorola.com"><i className="fa fa-envelope"></i>&emsp;support@tutorola.com</a><br />
+						<a href="tel:6204264344"><i className="fa fa-phone"></i>&emsp;&nbsp;7479183592</a><br />
+						<span className="text-footer">&nbsp;<i className="fa fa-map-marker"></i>&emsp;&nbsp;IIT Kharagpur, West Bengal</span><br /><hr />
+						<a href="https://www.facebook.com/tutorola" className="fa fa-facebook social-icons ml-0"></a>
+						<a href="#" className="fa fa-linkedin social-icons"></a>
+						<a href="https://www.quora.com/q/nmtqlzmdrjdfgeml" className="fa fa-quora social-icons"></a>
 					</div>
 				</div>
 
-				<div className="row pt-5 mt-5 text-center">
+				{/* <div className="row pt-5 mt-5 text-center">
 					<div className="col-md-12">
 						<div className="border-top pt-5">
 							<p>
-								{/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
+								Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 								Copyright &copy;
 								<script>
 									document.write(new Date().getFullYear());
@@ -75,11 +57,11 @@ function Footer() {
 								<a href="https://colorlib.com" target="_blank">
 									Colorlib
 								</a>
-								{/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
+								Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
 							</p>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</footer>
 	);

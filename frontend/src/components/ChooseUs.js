@@ -17,7 +17,7 @@ function Choose() {
 					data-aos-delay=""
 				>
 					<div className="col-lg-7 text-center">
-						<h2 className="section-title">Why Choose Us</h2>
+						<h2 className="section-title">Request a Tutor</h2>
 					</div>
 				</div>
 				<div className="row">
