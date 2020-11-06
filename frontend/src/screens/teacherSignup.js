@@ -4,8 +4,6 @@ import '../css/signup.css';
 import { toast } from "react-toastify";
 import OtpInput from 'react-otp-input';
 
-const api = 'https://backend.tutorola.com';
-
 var user, otp;
 
 export default class TeacherSignUp extends Component {
@@ -30,7 +28,7 @@ export default class TeacherSignUp extends Component {
         $("html, body").animate({ scrollTop: 0 }, 100);
         var token = localStorage.getItem('teacherToken');
         if(token) {
-            fetch(api+'/login/teacherCheckTokenStatus', {
+            fetch('/api/login/teacherCheckTokenStatus', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({token})
@@ -81,7 +79,7 @@ export default class TeacherSignUp extends Component {
     isEmail = () => {
         var email = document.getElementById('email')
         if(email.checkValidity()) {
-            fetch(api+'/login/teacherIsEmail', {
+            fetch('/api/login/teacherIsEmail', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({email: this.state.signupEmail})
@@ -120,7 +118,7 @@ export default class TeacherSignUp extends Component {
                 email: this.state.signupEmail,
                 password: this.state.signupPassword
             }
-            fetch(api+'/login/teacherSendOTP', {
+            fetch('/api/login/teacherSendOTP', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({email: user.email})
@@ -148,7 +146,7 @@ export default class TeacherSignUp extends Component {
     }
 
     resendOTPClick = () => {
-        fetch(api+'/login/teacherSendOTP', {
+        fetch('/api/login/teacherSendOTP', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email: user.email})
@@ -174,7 +172,7 @@ export default class TeacherSignUp extends Component {
         //console.log(this.state);
         $('#signup-otp-form .register-button').attr('disabled', 'true');
         $('#signup-otp-form .register-button').css('opacity', '0.7');
-        fetch(api+'/login/teacherCheckOTP', {
+        fetch('/api/login/teacherCheckOTP', {
             method: 'POST', 
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({otp, input: this.state.otpInput})
@@ -182,7 +180,7 @@ export default class TeacherSignUp extends Component {
         .then(res => res.json())
         .then(data2 => {
             if(data2.status === 'success') {
-                fetch(api+'/login/teacherSignup', {
+                fetch('/api/login/teacherSignup', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(user)
@@ -221,7 +219,7 @@ export default class TeacherSignUp extends Component {
         e.preventDefault();
         $('.login-button').attr('disabled', 'true');
         $('.login-button').css('opacity', '0.7');
-        fetch(api+'/login/teacherLogin', {
+        fetch('/api/login/teacherLogin', {
             method: 'POST', 
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email: this.state.loginEmail, password: this.state.loginPassword})
@@ -322,7 +320,7 @@ export default class TeacherSignUp extends Component {
                                     </form>
                                 ) :
                                 (
-                                    <form id="signup-otp-form">
+                                    <form id="signup-otp-form" onSubmit={this.OTPSubmit}>
                                         <div className="otp-text">An OTP has been sent to your Email!</div>
                                         <div className="form-row">
                                             {/* <label htmlFor="otp">OTP</label>
@@ -340,7 +338,7 @@ export default class TeacherSignUp extends Component {
                                         </div>
                                         <span className="resend-otp-row">Didn't receive OTP?&nbsp; <span className="resend-otp" onClick={this.resendOTPClick}>Resend OTP</span></span>
                                         <center>
-                                            <button type="submit" className="register-button" style={{marginTop: 40}} onClick={this.OTPSubmit}>Verify and Register</button>
+                                            <button type="submit" className="register-button" style={{marginTop: 40}}>Verify and Register</button>
                                         </center>
                                     </form>
                                 )}

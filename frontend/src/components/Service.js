@@ -1,7 +1,7 @@
 import React from "react";
 function Services() {
 	return (
-		<div className="site-section pb-0" id="services">
+		<div className="site-section pb-0 bg-white" id="services">
 			<div className="container">
 				<div className="row mb-5 justify-content-center">
 					<div

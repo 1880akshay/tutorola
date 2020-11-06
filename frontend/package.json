@@ -1,16 +1,20 @@
 {
   "name": "tutorola",
   "homepage": "https://tutorola.com",
+  "proxy": "http://localhost:9000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "jquery": "^3.5.1",
-    "react": "^16.4.2",
+    "react": "^16.14.0",
+    "react-compound-slider": "^2.5.0",
+    "react-content-loader": "^5.1.2",
     "react-dom": "^16.4.2",
     "react-otp-input": "^2.0.2",
     "react-owl-carousel": "^2.3.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "3.4.1",
+    "react-select": "^3.1.0",
     "react-toastify": "^4.1.0"
   },
   "scripts": {

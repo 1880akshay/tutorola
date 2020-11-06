@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import $ from 'jquery';
 
-const api = 'https://backend.tutorola.com';
-
 export default class HomePage extends Component {
 
 	state = {
@@ -22,7 +20,7 @@ export default class HomePage extends Component {
 				checkbox.attr('required', 'required');
 			}
 		}); */
-		fetch(api+'/topicRequest/getSubjects')
+		fetch('/api/topicRequest/getSubjects')
 		.then(res => res.json())
 		.then(data => {
 			this.setState({loaded: true});
@@ -35,7 +33,7 @@ export default class HomePage extends Component {
 	topicRequestFormSubmit = (e) => {
 		e.preventDefault();
 		$('form button').attr('disabled', 'true');
-		fetch(api+'/topicRequest/submit', {
+		fetch('/api/topicRequest/submit', {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify(this.state)
@@ -56,7 +54,7 @@ export default class HomePage extends Component {
 		this.setState({subject: e.target.value});
 		var subId = Number($('.subject-dropdown option:selected').attr('data-sub-id'));
 		if(subId) {
-			fetch(api+'/topicRequest/getTopics', {
+			fetch('/api/topicRequest/getTopics', {
 				method: 'POST',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({subId})

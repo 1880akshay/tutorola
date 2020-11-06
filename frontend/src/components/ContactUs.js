@@ -2,8 +2,6 @@ import React, {Component} from "react";
 import $ from 'jquery';
 import { toast } from "react-toastify";
 
-const api='https://backend.tutorola.com';
-
 class Contact extends Component {
 
 	state = {
@@ -16,7 +14,7 @@ class Contact extends Component {
 		e.preventDefault();
 		$('form button').attr('disabled', 'true');
 
-		fetch(api+'/contact', {
+		fetch('/api/contact', {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify(this.state)

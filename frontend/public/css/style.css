@@ -6,12 +6,12 @@ body {
 	color: gray;
 	font-weight: 300;
 	font-size: 1.1rem;
-	margin: 0;
-	padding: 0;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 html {
-	margin: 0;
-	padding: 0;
+	margin: 0 !important;
+	padding: 0 !important;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
 }
@@ -1699,6 +1699,9 @@ ul.ks-cboxtags li input[type="checkbox"] {
 	padding: 8px 15px !important;
 	border-radius: 5px !important;
 }
+.Toastify__close-button {
+	outline: none !important;
+}
 
 .testimonial-img {
 	width: 25% !important;
@@ -1725,4 +1728,36 @@ ul.ks-cboxtags li input[type="checkbox"] {
 }
 .owl-carousel button.owl-dot.active {
 	background: rgba(121, 113, 234, 0.8) !important;
+}
+
+.profile-hero, .courses-hero, .courseInfo-hero {
+    height: 600px;
+	width: 100%;
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	background: linear-gradient(87deg,rgba(23, 43, 77, 0.95), rgba(26, 23, 77, 0.95)), url('../images/hero_1.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+}
+.courses-hero {
+	height: 300px;
+	justify-content: center;
+}
+.courseInfo-hero {
+	min-height: 300px;
+	height: max-content;
+	flex-direction: column;
+	justify-content: center;
+}
+.no-select {
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

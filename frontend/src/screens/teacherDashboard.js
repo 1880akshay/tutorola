@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-const api = "https://backend.tutorola.com";
-
 export default class TeacherDashboard extends Component {
 
     state = {
@@ -11,7 +9,7 @@ export default class TeacherDashboard extends Component {
     componentWillMount() {
         var token = localStorage.getItem('teacherToken');
         if(token) {
-            fetch(api+'/login/teacherCheckTokenStatus', {
+            fetch('/api/login/teacherCheckTokenStatus', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({token})
@@ -38,7 +36,7 @@ export default class TeacherDashboard extends Component {
 
     logout = () => {
         var token = localStorage.getItem('teacherToken');
-        fetch(api+'/login/teacherLogout', {
+        fetch('/api/login/teacherLogout', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({token})

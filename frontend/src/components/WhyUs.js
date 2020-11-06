@@ -21,7 +21,7 @@ function WhyUs() {
 						data-aos="fade-up"
 						data-aos-delay="100"
 					>
-						<div className="teacher text-center">
+						<div className="teacher text-center bg-white">
 							<img
 								src="images/tutor.jpg"
 								alt="Expert Tutors"
@@ -42,7 +42,7 @@ function WhyUs() {
 						data-aos="fade-up"
 						data-aos-delay="200"
 					>
-						<div className="teacher text-center">
+						<div className="teacher text-center bg-white">
 							<img
 								src="images/profile.jpg"
 								alt="Authentic Profiles"
@@ -63,7 +63,7 @@ function WhyUs() {
 						data-aos="fade-up"
 						data-aos-delay="300"
 					>
-						<div className="teacher text-center">
+						<div className="teacher text-center bg-white">
 							<img
 								src="images/timing.jpg"
 								alt="Flexible Timings"
@@ -83,7 +83,7 @@ function WhyUs() {
 						data-aos="fade-up"
 						data-aos-delay="300"
 					>
-						<div className="teacher text-center">
+						<div className="teacher text-center bg-white">
 							<img
 								src="images/price.jpg"
 								alt="Affordable prices"
