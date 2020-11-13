@@ -56,7 +56,7 @@ export default class CourseCard extends Component {
                                     </div>
                                 </Link>
                                 <div className="button-group">
-                                    <div className="button-group-button">Enroll Now</div>
+                                    <div className="button-group-button b1">Enroll Now</div>
                                     <div className="button-group-button">View Details</div>
                                 </div>
                             </div>

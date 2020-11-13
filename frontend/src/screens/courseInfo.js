@@ -20,27 +20,32 @@ export default class CourseInfo extends Component {
     componentWillMount() {
         var urlParams = (window.location.search);
         if(urlParams) {
-            courseId = Number(urlParams.slice(4));
-            //console.log(courseId);
-            if(isNaN(courseId)) {
+            if(urlParams.slice(0, 4)==='?id=') {
+                courseId = Number(urlParams.slice(4));
+                //console.log(courseId);
+                if(isNaN(courseId)) {
+                    this.props.history.push('/courses');
+                }
+                fetch('/api/courses/getCourseInfo', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({courseId})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.status==='success') {
+                        var keywords = JSON.parse(data.courseInfo.keywords);
+                        this.setState({courseName: keywords[0], subject: keywords[1], loaded2: true});
+                    }
+                    else {
+                        this.props.history.push('/courses');
+                        //console.log(data);
+                    }
+                });
+            }
+            else {
                 this.props.history.push('/courses');
             }
-            fetch('/api/courses/getCourseInfo', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({courseId})
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.status==='success') {
-                    var keywords = JSON.parse(data.courseInfo.keywords);
-                    this.setState({courseName: keywords[0], subject: keywords[1], loaded2: true});
-                }
-                else {
-                    this.props.history.push('/courses');
-                    //console.log(data);
-                }
-            });
         }
         else {
             this.props.history.push('/courses');

@@ -3,7 +3,6 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var cors = require("cors");
 var mysql = require('mysql');
 var nodemailer = require('nodemailer');
 var multer = require("multer");
@@ -56,8 +55,6 @@ var contactRouter = require('./routes/contact');
 var topicRequestRouter = require('./routes/topicRequest');
 var profileRouter = require('./routes/profile');
 var coursesRouter = require('./routes/courses');
-//var usersRouter = require("./routes/users");
-//var testAPIRouter = require("./routes/testAPI");
 
 var app = express();
 
@@ -65,11 +62,6 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
-/*var corsOptions = {
-  origin: 'https://www.tutorola.com'
-}*/
-
-app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -84,8 +76,6 @@ app.use('/api/contact', contactRouter);
 app.use('/api/topicRequest', topicRequestRouter);
 app.use('/api/profile', profileRouter);
 app.use('/api/courses', coursesRouter);
-//app.use("/users", usersRouter);
-//app.use("/testAPI", testAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
