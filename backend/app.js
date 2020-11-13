@@ -9,7 +9,7 @@ var multer = require("multer");
 
 var storage = multer.diskStorage({
   //destination: '../public_html/profile_images',
-  destination: '../final/public/profile_images',
+  destination: '../frontend/public/profile_images',
 	filename: (req, file, cb) => {
 		cb(null, 'image_' + 'user' + req.body.id + path.extname(file.originalname));
 	}
