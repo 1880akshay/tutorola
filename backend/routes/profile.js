@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const Jimp = require('jimp');
+const fs = require('fs');
 /*var multer = require("multer");
 var path = require("path");
 
@@ -61,7 +63,24 @@ router.post('/getProfile', function(req, res, next) {
 router.post('/imageUpload', upload.single('profileImage'), function(req, res, next) {
     var id = req.body.id;
     var image = req.file.filename;
-    let query = "UPDATE students SET profileImage='"+image+"' WHERE id='"+id+"'";
+    var nameonly=image.substr(0, image.lastIndexOf('.'));
+    // Jimp.read('../public_html/profile_images/students/'+image, (err, img) => {
+    Jimp.read('../public/profile_images/students/'+image, (err, img) => {
+        if (err) throw err;
+        img
+          .resize(256, 256) // resize
+          .write('../public/profile_images/students/'+nameonly+'.jpg'); // save
+    });
+    if(nameonly+'.jpg'!==image) {
+        fs.unlink('../public/profile_images/students/'+image, (err) => {
+            if (err) {
+              console.log(err);
+              return;
+            }          
+            //file removed
+        })
+    }
+    let query = "UPDATE students SET profileImage='"+nameonly+".jpg' WHERE id='"+id+"'";
     con.query(query, (err, result) => {
         if(err) res.send({'status': 'failure'});
         else res.send({'status': 'success'});

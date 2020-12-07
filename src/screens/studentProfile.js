@@ -434,7 +434,7 @@ export default class StudentProfile extends Component {
                                 <div className="profile-edit-form">
                                     <center>
                                         <div className="profile-img-container">
-                                            <img src={`./profile_images/${this.state.profileImage}`} alt="" className="profile-img" />
+                                            <img src={`./profile_images/students/${this.state.profileImage}`} alt="" className="profile-img" />
                                             {/* <div className="profile-img-overlay"></div> */}
                                             <button type="button" data-toggle="modal" data-target="#profile-img-modal" data-backdrop="static" data-keyboard="false" className="fa fa-pencil img-edit-icon" title="Change Profile Image"></button>
                                         </div>
@@ -557,7 +557,7 @@ export default class StudentProfile extends Component {
                                         <span className="fa fa-times" id="cross-btn" onClick={this.clearImageInput}></span>
                                         <input type="file" accept="image/*" id="profile-img-upload" className="profile-input-tag" onChange={this.readURL} required />
                                     </label>
-                                    <button className="btn btn-primary mt-2" style={{width: 300}}>Update</button>
+                                    <button type="submit" className="btn btn-primary mt-2" style={{width: 300}}>Update</button>
                                 </form>
                                 
                             </center>

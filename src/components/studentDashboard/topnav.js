@@ -75,7 +75,7 @@ export default class Topnav extends Component {
                                 <input type="text" className="search-box" placeholder="Search..." />
                                 <button type="submit" className="fa fa-search" id="search-icon"></button>
                             </form>
-                            <div><img src={`./profile_images/${this.props.image}`} className="pc-avatar" alt="" onClick={this.toggleDropdown} ref={node => this.node2=node} /></div>
+                            <div><img src={`./profile_images/students/${this.props.image}`} className="pc-avatar" alt="" onClick={this.toggleDropdown} ref={node => this.node2=node} /></div>
                             <div style={{color: '#fff', marginLeft: 10, fontSize: 14}} onClick={this.toggleDropdown} ref={node => this.node3=node}>{this.props.name}</div>
                         </div>
                     </div>

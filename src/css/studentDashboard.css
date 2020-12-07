@@ -537,12 +537,26 @@ button#toggler {
     font-family: Times;
     line-height: 1;
 }
+.Stars__big {
+    font-size: 30px;
+}
 .Stars::before {
     content: '★★★★★';
     background: linear-gradient(90deg, #7971ea var(--percent), #c9c9c9 var(--percent));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.add-review-stars {
+    line-height: 1;
+    margin-top: 10px;
+    width: max-content;
+    position: relative;
+}
+.add-review-stars span {
+    font-size: 40px;
+    color: #c9c9c9;
+    cursor: pointer;
 }
 .button-group {
     display: flex;
@@ -731,4 +745,141 @@ button#toggler {
     align-items: center;
     color: #343a40;
     font-weight: 600;
+}
+.course-rating-review {
+    font-size: 15px;
+    line-height: 1.2;
+}
+.course-teacher-img {
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+}
+.course-teacher-info {
+    justify-content: flex-end;
+}
+@media (max-width: 576px) {
+    .course-teacher-info {
+        justify-content: flex-start;
+    }
+}
+.rating-main-lg {
+    font-size: 50px;
+    font-weight: 800;
+    color: #7971ea;
+    line-height: 0.8;
+    margin-bottom: 7px;
+}
+@media (max-width: 500px) {
+    .rating-main-lg {
+        font-weight: 700;
+        font-size: 45px;
+    }
+}
+.course-rating-main-wrapper .progress {
+    height: 10px;
+    width: 70%;
+}
+.course-rating-main-wrapper .progress:hover {
+    box-shadow: 0 0 5pt 1pt rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 1200px) {
+    .course-rating-main-wrapper .progress {
+        width: 60%;
+    }
+}
+.course-rating-main-wrapper .progress-bar {
+    --percent: calc(var(--number) / (var(--total)) * 100%);
+    width: var(--percent);
+}
+.review-main-container {
+    min-height: 280px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 5px;
+}
+.review-wrapper {
+    height: 80%;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.review-text {
+    font-style: italic;
+    font-size: 15px;
+}
+.reviewer-img {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+}
+#review-carousel .owl-dots {
+    margin: 0;
+}
+#review-carousel .owl-dots span {
+    display: none;
+}
+.add-review-btn {
+    padding: 8px 15px;
+    border-radius: 50px;
+    border: 2px solid #7971ea;
+    background-color: #fff;
+    color: #7971ea;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    width: 100%;
+    line-height: 1.4;
+    transition: 0.3s all;
+    outline: none !important;
+}
+.add-review-btn:hover {
+    background-color: #7971ea;
+    color: #fff;
+}
+@media (max-width: 380px) {
+    .review-btn-grp {
+        flex-direction: column;
+        align-items: center;
+    }
+    .review-btn-grp > div {
+        max-width: 80%;
+    }
+    .review-btn-grp > div:first-child {
+        margin-bottom: 10px !important;
+    }
+}
+.add-review-textbox {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    border: 1px solid #c9c9c9;
+    padding: 10px;
+    resize: none;
+}
+#pseudo-rating {
+    opacity: 0;
+    position: absolute;
+    top: 100px;
+    z-index: -1;
+    width: 0;
+    height: 0;
+}
+.review-card {
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media (max-width: 992px) {
+    .review-card > div > div {
+        margin: 0 auto;
+    }
 }

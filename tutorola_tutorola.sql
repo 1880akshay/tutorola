@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2020 at 05:39 AM
+-- Generation Time: Dec 07, 2020 at 11:36 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -71,12 +71,46 @@ CREATE TABLE IF NOT EXISTS `courses` (
 --
 
 INSERT INTO `courses` (`id`, `subjectId`, `topicId`, `teacherId`, `teacherName`, `price`, `rating`, `keywords`) VALUES
-(1, 1, 1, 1, 'Akshay', '300', '4', '[\"Physics and Measurement\",\"Physics\",\"Akshay\"]'),
-(2, 1, 4, 1, 'Akshay', '500', '3.5', '[\"Work, Energy and Power\",\"Physics\",\"Akshay\"]'),
-(3, 2, 7, 1, 'Akshay', '700', '4.5', '[\"States of Matter\",\"Chemistry\",\"Akshay\"]'),
-(4, 3, 10, 1, 'Akshay', '800', '', '[\"Functions\",\"Mathematics\",\"Akshay\"]'),
-(5, 4, 2, 1, 'Akshay', '400', '3', '[\"Biological Classification\",\"Biology\",\"Akshay\"]'),
-(6, 4, 12, 1, 'Akshay', '700', '2.5', '[\"Locomotion and Movement\",\"Biology\",\"Akshay\"]');
+(1, 1, 1, 1, 'Akshay', '300', '4.4', '[\"Physics and Measurement\",\"Physics\",\"Akshay\"]'),
+(2, 1, 4, 1, 'Akshay', '500', '5.0', '[\"Work, Energy and Power\",\"Physics\",\"Akshay\"]'),
+(3, 2, 7, 1, 'Akshay', '700', '', '[\"States of Matter\",\"Chemistry\",\"Akshay\"]'),
+(4, 3, 10, 1, 'Akshay', '800', '4.0', '[\"Functions\",\"Mathematics\",\"Akshay\"]'),
+(5, 4, 2, 1, 'Akshay', '400', '3.0', '[\"Biological Classification\",\"Biology\",\"Akshay\"]'),
+(6, 4, 12, 1, 'Akshay', '700', '1.0', '[\"Locomotion and Movement\",\"Biology\",\"Akshay\"]');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE IF NOT EXISTS `reviews` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `courseId` int(11) NOT NULL,
+  `studentId` int(11) NOT NULL,
+  `studentName` varchar(255) NOT NULL,
+  `profileImage` varchar(255) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `review` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `courseId`, `studentId`, `studentName`, `profileImage`, `rating`, `review`) VALUES
+(1, 1, 3, 'Akshay Jain', 'image_user3.jpg', 5, 'Very nice course structure and nicely taught. Highly recommended!'),
+(2, 1, 15, 'Akshay Jain', 'avatar.png', 4, ''),
+(3, 1, 1, 'Amit Kumar', 'avatar.png', 4, 'Great Teacher and nice course!'),
+(4, 1, 4, 'Aaditya', 'avatar.png', 5, 'The best course ever. The teacher is an expert in his domain and taught complex concepts in a very easy way. Highly recommended course!'),
+(5, 1, 5, 'Aman Bansal', 'avatar.png', 5, 'Simply awesome!'),
+(6, 1, 6, 'Aakash', 'avatar.png', 3, 'The course was good.'),
+(7, 1, 7, 'Rahul', 'avatar.png', 5, 'Very nice teacher!'),
+(8, 4, 3, 'Akshay Jain', 'image_user3.jpg', 4, ''),
+(9, 6, 3, 'Akshay Jain', 'image_user3.jpg', 1, 'Poor quality teaching. Not recommended'),
+(10, 2, 3, 'Akshay Jain', 'image_user3.jpg', 5, ''),
+(11, 5, 3, 'Akshay Jain', 'image_user3.jpg', 3, '');
 
 -- --------------------------------------------------------
 

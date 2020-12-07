@@ -61,7 +61,7 @@ export default class Sidebar extends Component {
                             <img src="./images/logotutorola.png" className="brand-logo-img" style={{margin: 0}} alt="tutorola" />
                         </Link>
                     </div>
-                    <img src={`./profile_images/${this.props.image}`} alt="" className="mobile-avatar" onClick={this.toggleDropdown} ref={node => this.node=node} />
+                    <img src={`./profile_images/students/${this.props.image}`} alt="" className="mobile-avatar" onClick={this.toggleDropdown} ref={node => this.node=node} />
                     <div className="list-container">
                         <ul>                    
                             

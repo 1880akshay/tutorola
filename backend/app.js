@@ -8,8 +8,8 @@ var nodemailer = require('nodemailer');
 var multer = require("multer");
 
 var storage = multer.diskStorage({
-  //destination: '../public_html/profile_images',
-  destination: '../frontend/public/profile_images',
+  //destination: '../public_html/profile_images/students',
+  destination: '../public/profile_images/students',
 	filename: (req, file, cb) => {
 		cb(null, 'image_' + 'user' + req.body.id + path.extname(file.originalname));
 	}
@@ -37,7 +37,8 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "tutorola_tutorola"
+  database: "tutorola_tutorola",
+  multipleStatements: true
 });
 
 con.connect(function(err) {
@@ -55,6 +56,7 @@ var contactRouter = require('./routes/contact');
 var topicRequestRouter = require('./routes/topicRequest');
 var profileRouter = require('./routes/profile');
 var coursesRouter = require('./routes/courses');
+var reviewsRouter = require('./routes/reviews');
 
 var app = express();
 
@@ -76,6 +78,7 @@ app.use('/api/contact', contactRouter);
 app.use('/api/topicRequest', topicRequestRouter);
 app.use('/api/profile', profileRouter);
 app.use('/api/courses', coursesRouter);
+app.use('/api/reviews', reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
