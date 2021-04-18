@@ -17,9 +17,9 @@ Actually, there are two separated apps. The frontend directory which serves the 
 ## How to run the Backend
 1. In your terminal, navigate to the `backend` directory.
 2. Run `npm install` to install all dependencies.
-3. Run `npm start` to start the app.
+3. Run `npm start` to start the server.
 
 ## How to run the Frontend
-1. In another terminal, navigate to the `frontend` directory.
+1. In another terminal, navigate back to the parent directory.
 2. Run `npm install` to install all dependencies.
 3. Run `npm start` to start the app
